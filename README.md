@@ -37,20 +37,17 @@ administrator to easily install, update, remove or search software packages on a
 
 * touch : create new files.
 
-* mkdir : make a directory in the current working directory.(mkdir [path] for a dir
-           in a specified path)
+* mkdir : make a directory in the current working directory.(mkdir [path] for a dir in a specified path)
 
 * cd : change directory
 
-* cat : reading a single file or concatenation of two or more files.
-         (to read use cat < (filename) to overwrite use cat > (filename) )
+* cat : reading a single file or concatenation of two or more files. (to read use cat < (filename) to overwrite use cat > (filename) )
 
 // NOTE: To append some data to the file and not overwrite it use (cat >> )
 
 * mv : renames files (mv foo boo changes the file with a file name foo to boo)
 
-* rm : removes given file or directory (rm foo removes the file named foo)
-        for removing a directory used command rm -r [dirname] or rmdir [dirname]
+* rm : removes given file or directory (rm foo removes the file named foo). For removing a directory used command rm -r [dirname] or rmdir [dirname]
 
 * cp : used to copy a file (cp old music\old creates a copy of the file in music)
 
@@ -85,15 +82,12 @@ administrator to easily install, update, remove or search software packages on a
          of what we want to display on the terminal,
          the command is executed as : cut -d(represents diffrenciating character)"d.c." -f (represents the fields to be displayed) 1,3 [filename]
 
-* dd : used for conversions used as --> dd if = test of = test2 conv = ucase
-        here if in input file which we want to convert and of represents output
-        files con = ucase turns all text to uppercase.
+* dd : used for conversions used as --> dd if = test of = test2 conv = ucase , here if in input file which we want to convert and of represents output files con = ucase turns all text to uppercase.
 
 * banner : makes text appear in pattern of stars etc (fancy text).
 
 * compress : used to compress files. used as compress -v filename
               the -v here is used to display the level of compression
 
-              to check a z file afer compression used comman zcat file.z
 
 
