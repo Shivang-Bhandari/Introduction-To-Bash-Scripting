@@ -276,3 +276,69 @@ else
 echo "Not Executed"  
 
 fi``
+
+### Checks On Numbers :
+-------------------
+
+
+To create checks on numbers which have been input by the user the syntaxes are :
+
+1. lt : less than
+2. gt : greater than
+
+suppose there is a variable named varnum holding the value of user input. To check
+a number is greater than or less than a given condition (suppose 30)
+then the syntax to check it would be :
+
+``[$varnum -lt/gt 30 ]``
+
+this command can be used in an if else block to act accordingly if the statement
+is true or false.
+
+
+
+### Check on Files :
+----------------
+
+If a variable named varname has the user input for the filename that is to be checked
+Checks on files can be performed using a simple syntax : [-f $varname]
+similarly many filetypes can be checked by simply replacing -f in the command
+
+The various types which can be checked are :
+
+``-d`` : Directory
+
+``-c`` : Character Special Files
+
+``-b`` : Media Files
+
+``-r`` : Read Permission
+
+``-w`` : Write Permission
+
+``-x`` : Execute Permission
+
+``-s`` : File Size (Helps determine file size is greater than zero)
+
+
+### Checks on Strings :
+-------------------
+
+Suppose there are two variables with string inputs then below are some of the Checks
+one can perform on the strings :
+
+Let variable names be str1 and str2
+
+NOTE: Variables are kept in double-quotes to treat them as strings
+
+1. ``Equality`` : ``[ "str1" = "str2" ]``
+
+2. ``UnEquality`` : ``[ "str1" != "str2"]``
+
+3. ``Non-Zero Length String`` : ``[ -n "str1" ]``
+
+4. ``Zero Length String`` : ``[ -z "str1" ]``
+
+
+ NOTE: If the result is True then answer is 0 else 1. To check the result use
+ command echo $? after the command
