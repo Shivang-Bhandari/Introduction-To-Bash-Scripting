@@ -342,3 +342,143 @@ NOTE: Variables are kept in double-quotes to treat them as strings
 
  NOTE: If the result is True then answer is 0 else 1. To check the result use
  command echo $? after the command
+
+
+### AND Operator :
+--------------
+
+
+The Logical AND Operator is denoted by '-a'. While checking conditions
+
+e.g. : ``[ num -le 50 -a num -ge 10] checks if num is less than 50 and greater than 10``
+
+
+### OR Operator :
+--------------
+
+
+The Logical OR Operator is denoted by '``-o``'. While checking conditions
+
+e.g. : ``[ $var = a -o $var = e -o $var = i $var = o -o $var = u ]``
+checks if the character stored in the variable var is a vowel or not.
+
+
+
+### Cases :
+-------
+
+
+For a given input by the user, there can be multiple checks which can be performed
+using cases. If we have to find out the type of input stored in a variable
+the cases can be : LowerCase, UpperCase, Digit, SpecialCharacter, More than one character
+
+Command :
+
+to initialize a case first we need to have a control variable on which the cases shall
+be executed. Lets say the case variable is 'inp'
+
+``case $inp in      //initializes the case in a script
+[a-z])           // ) bracket tells shell to go furthur and execute statements for the case
+      echo "LowerCase"
+      ;;        // tells that the case statements have finished
+
+[A-Z])
+     echo "UpperCase"
+      ;;
+
+[0-9])
+      echo "Digit"
+      ;;
+
+?)             // ? represents any 1 character on keyboard
+      echo "SpecialCharacter"
+      ;;
+
+*)            // * represents multiple character input
+      echo "multiple characters"
+      ;;
+
+esac        // case spelled backwards to indicate cases have been finished
+``
+
+
+## Loops :
+=======
+
+
+
+### While Loop :
+------------
+
+Syntax :
+
+``while [ condition ]
+do
+    //statements
+done``
+
+
+* Incrementation : Lets suppose the loop control variable is by the name of count.
+Then to increment the variable count by 1 everytime the loop executed the Syntax
+would be :
+
+count = `expr count+1`
+
+* expr tells the shell to execute count+1 as an expression and the whole expression
+  is in Accent Graves because we need count to be equal to the final outcome of the
+  expression.
+
+Example :
+
+to print numbers from 1-10 using while loop :
+
+``count = 1
+
+while [ $count -le 10 ]         //condition
+do
+  echo $count                   // prints numbers
+  count = `expr count+1`        // Incrementation
+done                            // end of loop
+
+``
+
+
+### Until Loop :
+------------
+
+The until loop works somewhat like the while loop, The only difference in them is
+that the while loop executes till the condition specified is true whereas Until
+loop executes till the condition specified is false.
+
+Syntax :
+
+``until [ condition ]
+do
+  // conditions
+done
+``
+
+
+### For Loop :
+----------
+
+
+The for loops works normally as in other programming languages. In Shell scripting
+For loop works with the syntax on for in loop as of js. Moreover the loop control
+variable need not be initialized before using it in the loop.
+
+Syntax :
+
+``for item in *
+do
+    // statements
+
+done
+``
+
+#### Setting ranges in for Loop :
+
+* In a for loop range can be defined in the following way : for i in {l..g..i}
+
+* Here, l is the lower limit, g is the greater limit and i is the Incrementation.
+  for e.g. for i in {1..10..1} is equivalent to for(i=1;i<=10;i++)
