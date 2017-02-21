@@ -482,3 +482,178 @@ done
 
 * Here, l is the lower limit, g is the greater limit and i is the Incrementation.
   for e.g. for i in {1..10..1} is equivalent to for(i=1;i<=10;i++)
+  
+  
+----------
+  
+### grep :
+
+Grep is a command which helps find certain words or a set of words in a specified
+document which is given in as an argument while execution of the command. Syntax
+to use the grep command is : grep {word to find}      
+
+Grep has furthur options to make the search word case insensitive by using `-i` in
+front of the word to find and also print the line in which the word is by using
+`-n` in front of the word and to display both the -i and -n can be written in any
+order.    
+
+If we use `-c` in the command then the output is the number of lines in which the
+word is occuring.
+
+The `-v` option when used in the grep command it reverses the output that is it
+displays all the lines as output in which the word to find does not exist.
+
+`NOTE: for other options refer man grep`
+
+
+--------------------------
+### Internal Field Seperator :
+
+Whenever we use the set command we notice that the shell automatically allocates
+words to positional parameters. This works with the help of internal Field
+Seperator. By default the value of the ifs is set to `" " (space character)`
+i.e. it uses space character to diffrentiate and then use positional parameters.    
+
+We can modify the behaviour of the set command using shell scripts.
+To change the default value of the IFS in the shell just add a line in the script
+before the set command is used.
+
+`Add : IFS = (whatever you want to keep as the  seperating value for an input)`
+
+
+----------------------------------------
+### Reading inputs from pre-existing files :
+
+
+
+In shell we can read inputs from pre-existing files using the exec command.
+
+
+`NOTE: Refer to the shell script made in ubuntu for furthur understanding`
+
+
+
+
+-------
+### Sleep :
+
+
+The sleep command is used to create a time lag while an output is being displayed
+on the terminal. Syntax for the sleep command is : `sleep [no. of seconds]`  
+for e.g. if we run a for in loop for a string input by the user then print out each
+word one by one and run a sleep command with input 2 then, each word will be
+displayed after 2 seconds of the previous word.
+
+Syntax Example : `sleep 2`
+this generates a time gap of `2 seconds` between two events.
+
+
+
+-----------------------------------------------
+### Script to replace -wc for word and line count :
+
+
+As `-wc` is a command itself to find out the number of lines as well as words in a
+specified file which is given as an argument, we can also create a script which
+does the same work.
+
+Initially we need to store the terminal default settings so that they can be restored
+later using the exec command as done in a previous script `check printnumber in ubuntu`
+       
+Then we need to execute the file on the current terminal using the `exec command`.
+Set two variables `'nol'` and `'now'` for number of lines and number of words namely
+and set their initial value to `0` so that garbage value isnt picked up.      
+
+Then run a while loop which reads the control variable for input, now increment
+the nol for every new line in the document. For incrementation of the now variable
+first for each line use the set command and set the positional parameters for each
+word and then using `$#` for each line increment the number of words in a line in the
+now variable and in the end echo out the output.
+
+
+`NOTE: Dont forget to execute the default terminal settings in the end of the script`
+
+
+ ----------
+### Continue :
+
+ The continue statement in bash when executed tells the shell to skip all the commands
+ in the block and continue on with the block after the incrementation or leave the
+ block permanently if the incrementation no longer affects the loop condition.
+
+ In a while loop which prints numbers from 1-10 if we add an if block with the
+ condition of control variable being equal to 5, and in the if block we simply
+ execute the command continue, then, the furthur statements of the block wont be
+ executed and the output for 5 will not be echoed out to the terminal.
+
+
+ -----------------------
+ ### The ';' Metacharacter :
+
+ The ';' Metacharacter is used when the shell is to be `instructed that multiple
+ commands are to be executed one by one in order from left to right`, otherwise
+ without it the terminal throws error as multiple commands cant be executed at once.
+ For example if ls cal banner "Hi" is directly run it would throw an error in the
+ terminal but if we write it as ls; cal; banner "Hi" then the terminal will execute
+ the commands one by one from left to right.
+
+
+------------------
+### grep application :
+
+Previously we used grep to find out a pattern in a given file provided as an argument,
+To find a pattern and store it in a new file named 'pattern' there is a single
+line command without using if-else constructs.     
+
+`Command : grep -i [word] [file] > pattern && echo "Done"`     
+
+This command first makes the grep search Case insensitive and searches in the given
+file. `The '>' symbol refers to redirection`, i.e. The output of the grep command is
+then sent to the file pattern and when this is succesfully done it prints out Done on
+the terminal.
+
+
+-----------
+### Functions :
+
+
+Functions in bash are pretty much the same as in any programming language. In bash
+any function can be defined and then used in the terminal by just using the function
+name once the script is executed.    
+To execute the script first we need to give the file executing permissions using
+chmod +x command and then execute the script by using command '. filename.sh'    
+
+`NOTE: space between . and filename is necessary to execute the shell script`     
+
+We cannot execute the script directly using sh as it creates a new subshell and then
+executes the script in it due to which the outer shell doesnt have access to the
+shell where the script is being executed and therefore the shell cant access
+the functions which are made in the script.
+
+example :
+
+`greet()    
+{     
+  echo "Good Morning !"      
+}     
+`
+greet is a function which when run in a shell as a command will echo out Good Morning !
+
+
+##### Unset : 
+
+The unset command when run along with a function name givent to it
+as an argument it will then make the function disabled that is make it undefined
+and then when a command same as the funciton name will be run in the terminal
+The terminal will throw an error of command not found.
+
+
+----------------------------
+### Executing Multiple Scripts :
+
+When in a script if furthur linking is required to a script which exists we can
+link a script in a script by simply adding `sh script.sh` in the end of the parent
+script.      
+
+`NOTE: here script.sh is referred to any script which is to be linked`
+
